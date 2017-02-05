@@ -86,7 +86,9 @@ NewRateChangeSelect:
 
 	//¼ÆËã
 	BaseLoanCalculator *lc = new BaseLoanCalculator(payMethod, loanYears, loanPrincipal, loanAnnualInterestRate);
-	lc->AddAunnalInterestRateChange(rc.m_FromMonth, rc.m_NewRate/100);
+    if ('Y' == ifRateChange) {
+        lc->AddAunnalInterestRateChange(rc.m_FromMonth, rc.m_NewRate / 100);
+    }
 	lc->Calculate();
 
 	cout << "Press any Key to continue..." << endl;
